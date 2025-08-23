@@ -43,8 +43,8 @@ const CertificationsSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {certifications.map((cert, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-primary-light p-6 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+              <div key={index} className="text-center animate-fade-in hover-lift transition-all duration-300" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="bg-primary-light p-6 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center hover:bg-accent transition-colors duration-300">
                   <cert.icon className="h-10 w-10 text-primary-foreground" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{cert.title}</h3>

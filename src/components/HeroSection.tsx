@@ -28,15 +28,16 @@ const HeroSection = () => {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
+              variant="hero"
               size="lg" 
-              className="bg-accent hover:bg-accent-light text-accent-foreground font-semibold px-8 py-4 text-lg"
+              className="px-8 py-4 text-lg font-semibold"
             >
               Get Quote Now
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 text-lg"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 text-lg backdrop-blur-sm"
             >
               View Products
             </Button>

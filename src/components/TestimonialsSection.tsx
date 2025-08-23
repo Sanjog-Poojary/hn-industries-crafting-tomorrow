@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-card p-8 rounded-lg shadow-card border border-border relative">
+              <div key={index} className="bg-card p-8 rounded-lg shadow-card border border-border relative hover-lift hover:shadow-hover transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
                 <Quote className="h-8 w-8 text-accent mb-4" />
                 
                 <div className="flex mb-4">
@@ -46,13 +46,13 @@ const TestimonialsSection = () => {
                   ))}
                 </div>
 
-                <p className="text-muted-foreground mb-6 italic">
+                <p className="text-muted-foreground mb-6 italic leading-relaxed">
                   "{testimonial.content}"
                 </p>
 
                 <div className="border-t border-border pt-4">
                   <h4 className="font-bold text-foreground">{testimonial.name}</h4>
-                  <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                  <p className="text-sm text-accent font-medium">{testimonial.title}</p>
                 </div>
               </div>
             ))}

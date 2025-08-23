@@ -3,10 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Loader2 } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import useFormValidation, { FormData } from '@/hooks/useFormValidation';
 
 const QuoteSection = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     mobile: '',
@@ -15,14 +17,42 @@ const QuoteSection = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { toast } = useToast();
+  const { errors, isSubmitting, isSuccess, submitForm, clearError } = useFormValidation();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    const success = await submitForm(formData);
+    
+    if (success) {
+      toast({
+        title: "Enquiry Submitted!",
+        description: "Thank you for your interest. We'll contact you within 24 hours.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        mobile: '',
+        state: '',
+        city: '',
+        message: ''
+      });
+    } else {
+      toast({
+        title: "Submission Failed",
+        description: "Please check your information and try again.",
+        variant: "destructive",
+      });
+    }
   };
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    if (errors[field]) {
+      clearError(field);
+    }
   };
 
   const states = [
@@ -91,7 +121,17 @@ const QuoteSection = () => {
             </div>
 
             {/* Quote Form */}
-            <div className="bg-card p-8 rounded-lg shadow-card border border-border">
+            <div className="bg-card p-8 rounded-lg shadow-card border border-border hover:shadow-hover transition-all duration-300">
+              {isSuccess && (
+                <div className="mb-6 p-4 bg-success/10 border border-success/20 rounded-lg flex items-center">
+                  <CheckCircle className="h-5 w-5 text-success mr-3" />
+                  <div>
+                    <p className="text-success font-medium">Thank you for your enquiry!</p>
+                    <p className="text-success/80 text-sm">We'll contact you within 24 hours.</p>
+                  </div>
+                </div>
+              )}
+              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -103,8 +143,10 @@ const QuoteSection = () => {
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       placeholder="Enter your full name"
+                      className={errors.name ? 'border-destructive focus:ring-destructive' : ''}
                       required
                     />
+                    {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
@@ -115,8 +157,10 @@ const QuoteSection = () => {
                       value={formData.mobile}
                       onChange={(e) => handleInputChange('mobile', e.target.value)}
                       placeholder="Enter mobile number"
+                      className={errors.mobile ? 'border-destructive focus:ring-destructive' : ''}
                       required
                     />
+                    {errors.mobile && <p className="text-destructive text-sm mt-1">{errors.mobile}</p>}
                   </div>
                 </div>
 
@@ -129,8 +173,10 @@ const QuoteSection = () => {
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     placeholder="Enter your email address"
+                    className={errors.email ? 'border-destructive focus:ring-destructive' : ''}
                     required
                   />
+                  {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
@@ -138,18 +184,19 @@ const QuoteSection = () => {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       State *
                     </label>
-                    <Select onValueChange={(value) => handleInputChange('state', value)}>
-                      <SelectTrigger>
+                    <Select onValueChange={(value) => handleInputChange('state', value)} value={formData.state}>
+                      <SelectTrigger className={errors.state ? 'border-destructive focus:ring-destructive' : ''}>
                         <SelectValue placeholder="Select your state" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-card border border-border shadow-hover z-50">
                         {states.map((state) => (
-                          <SelectItem key={state} value={state}>
+                          <SelectItem key={state} value={state} className="hover:bg-secondary">
                             {state}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
+                    {errors.state && <p className="text-destructive text-sm mt-1">{errors.state}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
@@ -160,8 +207,10 @@ const QuoteSection = () => {
                       value={formData.city}
                       onChange={(e) => handleInputChange('city', e.target.value)}
                       placeholder="Enter your city"
+                      className={errors.city ? 'border-destructive focus:ring-destructive' : ''}
                       required
                     />
+                    {errors.city && <p className="text-destructive text-sm mt-1">{errors.city}</p>}
                   </div>
                 </div>
 
@@ -174,16 +223,28 @@ const QuoteSection = () => {
                     onChange={(e) => handleInputChange('message', e.target.value)}
                     placeholder="Please describe your requirements, project details, or any specific questions..."
                     rows={4}
+                    className="resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-accent hover:bg-accent-light text-accent-foreground font-semibold"
+                  variant="accent"
+                  className="w-full font-semibold disabled:opacity-70"
+                  disabled={isSubmitting}
                 >
-                  <Send className="h-5 w-5 mr-2" />
-                  Submit Enquiry
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-5 w-5 mr-2" />
+                      Submit Enquiry
+                    </>
+                  )}
                 </Button>
               </form>
             </div>

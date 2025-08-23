@@ -44,7 +44,7 @@ const ProductsSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
             {products.map((product, index) => (
-              <div key={index} className="bg-card-gradient p-8 rounded-lg shadow-card border border-border hover:shadow-industrial transition-shadow">
+              <div key={index} className="bg-card-gradient p-8 rounded-lg shadow-card border border-border hover:shadow-hover hover-lift transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
                 <div className="flex items-center mb-6">
                   <div className="bg-primary p-3 rounded-lg mr-4">
                     <product.icon className="h-8 w-8 text-primary-foreground" />
@@ -63,7 +63,7 @@ const ProductsSection = () => {
                   ))}
                 </div>
 
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                   View Details
                 </Button>
               </div>
@@ -71,7 +71,7 @@ const ProductsSection = () => {
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="bg-primary hover:bg-primary-dark text-primary-foreground px-8">
+            <Button variant="premium" size="lg" className="px-8 font-semibold">
               View All Products
             </Button>
           </div>

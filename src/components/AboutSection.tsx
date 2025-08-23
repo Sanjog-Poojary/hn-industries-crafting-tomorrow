@@ -70,7 +70,7 @@ const AboutSection = () => {
 
             <div className="grid grid-cols-2 gap-6">
               {highlights.map((highlight, index) => (
-                <div key={index} className="bg-card p-6 rounded-lg shadow-card border border-border">
+                <div key={index} className="bg-card p-6 rounded-lg shadow-card border border-border hover-lift animate-fade-in hover:shadow-hover transition-all duration-300" style={{animationDelay: `${index * 0.1}s`}}>
                   <highlight.icon className="h-8 w-8 text-accent mb-4" />
                   <h4 className="font-semibold text-foreground mb-2">{highlight.title}</h4>
                   <p className="text-sm text-muted-foreground">{highlight.description}</p>

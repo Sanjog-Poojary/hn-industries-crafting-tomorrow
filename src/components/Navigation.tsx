@@ -49,13 +49,13 @@ const Navigation = () => {
               </button>
               
               {activeDropdown === 'products' && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-card shadow-industrial border border-border rounded-md z-50">
-                  <div className="py-2">
+                <div className="absolute top-full left-0 mt-2 w-72 bg-card shadow-hover border border-border rounded-lg z-50 animate-fade-in backdrop-blur-sm">
+                  <div className="py-3">
                     {productCategories.map((category, index) => (
                       <a
                         key={index}
                         href="#products"
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                        className="block px-5 py-3 text-sm text-foreground hover:bg-secondary hover:text-primary transition-all duration-200 hover:translate-x-1"
                       >
                         {category}
                       </a>
@@ -72,7 +72,7 @@ const Navigation = () => {
               Contact
             </a>
             
-            <Button variant="default" className="bg-accent hover:bg-accent-light">
+            <Button variant="accent" className="hover:scale-105 transform transition-all duration-300">
               Enquire Now
             </Button>
           </div>
@@ -97,7 +97,7 @@ const Navigation = () => {
               <a href="#products" className="py-2 text-foreground hover:text-primary">Products</a>
               <a href="#quality" className="py-2 text-foreground hover:text-primary">Quality Policy</a>
               <a href="#contact" className="py-2 text-foreground hover:text-primary">Contact</a>
-              <Button variant="default" className="mt-2 bg-accent hover:bg-accent-light">
+              <Button variant="accent" className="mt-2">
                 Enquire Now
               </Button>
             </div>

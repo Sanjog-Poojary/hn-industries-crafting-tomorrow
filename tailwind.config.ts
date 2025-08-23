@@ -28,11 +28,13 @@ export default {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
 					light: 'hsl(var(--primary-light))',
-					dark: 'hsl(var(--primary-dark))'
+					dark: 'hsl(var(--primary-dark))',
+					hover: 'hsl(var(--primary-hover))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					foreground: 'hsl(var(--secondary-foreground))',
+					hover: 'hsl(var(--secondary-hover))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -45,7 +47,16 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
-					light: 'hsl(var(--accent-light))'
+					light: 'hsl(var(--accent-light))',
+					hover: 'hsl(var(--accent-hover))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -69,11 +80,15 @@ export default {
 			backgroundImage: {
 				'hero-gradient': 'var(--gradient-hero)',
 				'section-gradient': 'var(--gradient-section)',
-				'card-gradient': 'var(--gradient-card)'
+				'card-gradient': 'var(--gradient-card)',
+				'button-gradient': 'var(--gradient-button)',
+				'premium-gradient': 'var(--gradient-premium)'
 			},
 			boxShadow: {
 				'industrial': 'var(--shadow-industrial)',
-				'card': 'var(--shadow-card)'
+				'card': 'var(--shadow-card)',
+				'hover': 'var(--shadow-hover)',
+				'button': 'var(--shadow-button)'
 			},
 			fontFamily: {
 				'sans': ['Inter', 'system-ui', 'sans-serif'],
