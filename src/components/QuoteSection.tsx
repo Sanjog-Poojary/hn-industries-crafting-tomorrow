@@ -91,7 +91,7 @@ const QuoteSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Phone</h4>
-                    <p className="text-muted-foreground">+91 98765 43210</p>
+                    <p className="text-muted-foreground">+91 93243 45792</p>
                   </div>
                 </div>
 
