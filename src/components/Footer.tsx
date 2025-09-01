@@ -29,11 +29,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-3" />
-                <span>info@hnindustries.com</span>
+                <span>hriday@shivalikiepl.com</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="h-4 w-4 mr-3" />
-                <span>Industrial Area, Phase-II, New Delhi</span>
+                <span>1st Floor , Wadilal Tower , Badlapur (W) , Mumbai  - 421503</span>
               </div>
             </div>
           </div>

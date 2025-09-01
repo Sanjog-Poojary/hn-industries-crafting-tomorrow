@@ -101,7 +101,7 @@ const QuoteSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
-                    <p className="text-muted-foreground">info@hnindustries.com</p>
+                    <p className="text-muted-foreground">hriday@shivalikiepl.com</p>
                   </div>
                 </div>
 
@@ -112,8 +112,8 @@ const QuoteSection = () => {
                   <div>
                     <h4 className="font-semibold text-foreground">Address</h4>
                     <p className="text-muted-foreground">
-                      Industrial Area, Phase-II<br />
-                      New Delhi, India - 110020
+                      1st Floor , Wadilal Tower<br />
+                      Badlapur (W) , Mumbai  - 421503
                     </p>
                   </div>
                 </div>

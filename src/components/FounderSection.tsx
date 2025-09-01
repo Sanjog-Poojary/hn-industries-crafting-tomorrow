@@ -48,8 +48,8 @@ const FounderSection = () => {
                 </p>
 
                 <div className="pt-6 border-t border-border">
-                  <h4 className="text-xl font-bold text-foreground">Mr. Harish Nagar</h4>
-                  <p className="text-muted-foreground">Founder & Managing Director</p>
+                  <h4 className="text-xl font-bold text-foreground">Mr. Hriday Narayan</h4>
+                  <p className="text-muted-foreground">Founder & Promoter</p>
                   <p className="text-muted-foreground">HN Industries Equipments Pvt Ltd</p>
                 </div>
               </div>
