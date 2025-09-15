@@ -72,8 +72,8 @@ const Navigation = () => {
               Contact
             </a>
             
-            <Button variant="accent" className="hover:scale-105 transform transition-all duration-300">
-              Enquire Now
+            <Button variant="accent" className="hover:scale-105 transform transition-all duration-300" asChild>
+              <a href="#contact">Enquire Now</a>
             </Button>
           </div>
 
@@ -97,8 +97,8 @@ const Navigation = () => {
               <a href="#products" className="py-2 text-foreground hover:text-primary">Products</a>
               <a href="#quality" className="py-2 text-foreground hover:text-primary">Quality Policy</a>
               <a href="#contact" className="py-2 text-foreground hover:text-primary">Contact</a>
-              <Button variant="accent" className="mt-2">
-                Enquire Now
+              <Button variant="accent" className="mt-2" asChild>
+                <a href="#contact">Enquire Now</a>
               </Button>
             </div>
           </div>
