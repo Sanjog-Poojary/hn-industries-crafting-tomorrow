@@ -71,8 +71,8 @@ const ProductsSection = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="accent" size="lg" className="px-8 font-semibold">
-              View All Products
+            <Button variant="accent" size="lg" className="px-8 font-semibold" asChild>
+              <a href="#products">View All Products</a>
             </Button>
           </div>
         </div>
