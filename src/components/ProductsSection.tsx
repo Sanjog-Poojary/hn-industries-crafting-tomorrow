@@ -54,7 +54,7 @@ const ProductsSection = () => {
                 
                 <p className="text-muted-foreground mb-6">{product.description}</p>
                 
-                <div className="space-y-2 mb-6">
+                <div className="space-y-2">
                   {product.categories.map((category, categoryIndex) => (
                     <div key={categoryIndex} className="flex items-center">
                       <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
@@ -62,10 +62,6 @@ const ProductsSection = () => {
                     </div>
                   ))}
                 </div>
-
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
-                  View Details
-                </Button>
               </div>
             ))}
           </div>
