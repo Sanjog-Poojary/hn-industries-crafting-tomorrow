@@ -71,7 +71,7 @@ const ProductsSection = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="premium" size="lg" className="px-8 font-semibold">
+            <Button variant="accent" size="lg" className="px-8 font-semibold">
               View All Products
             </Button>
           </div>
