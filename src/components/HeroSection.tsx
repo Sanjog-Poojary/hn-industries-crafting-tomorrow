@@ -37,8 +37,8 @@ const HeroSection = () => {
             </Button>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 text-lg backdrop-blur-sm"
+              variant="accent" 
+              className="font-semibold px-8 py-4 text-lg"
               asChild
             >
               <a href="#products">View Products</a>
