@@ -1,15 +1,20 @@
-import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-manufacturing.jpg';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-manufacturing.jpg";
 
-const HeroSection = () => {
+const HeroSection: React.FC = () => {
   return (
     <section className="relative h-[600px] overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-hero-gradient opacity-80"></div>
+      <div className="absolute inset-0">
+        {/* Decorative background image - aria-hidden so it's ignored by assistive tech */}
+        <img
+          src={heroImage}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-hero-gradient opacity-80" />
       </div>
 
       {/* Content */}
@@ -22,22 +27,23 @@ const HeroSection = () => {
             with HN INDUSTRIES EQUIPMENTS PVT LTD
           </p>
           <p className="text-lg mb-8 opacity-90 max-w-2xl">
-            Leading manufacturer of premium industrial pipes and fittings, delivering 
-            leak-proof quality and long-lasting solutions for all your industrial needs.
+            Leading manufacturer of premium industrial pipes and fittings,
+            delivering leak-proof quality and long-lasting solutions for all
+            your industrial needs.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
+            <Button
               variant="hero"
-              size="lg" 
+              size="lg"
               className="px-8 py-4 text-lg font-semibold"
               asChild
             >
               <a href="#contact">Get Quote Now</a>
             </Button>
-            <Button 
-              size="lg" 
-              variant="accent" 
+            <Button
+              size="lg"
+              variant="accent"
               className="font-semibold px-8 py-4 text-lg"
               asChild
             >

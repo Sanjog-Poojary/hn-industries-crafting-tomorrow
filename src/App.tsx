@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import CookieBanner from "@/components/CookieBanner";
+import EnquiryModal from "@/components/EnquiryModal";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +15,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <CookieBanner />
+      <EnquiryModal />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
