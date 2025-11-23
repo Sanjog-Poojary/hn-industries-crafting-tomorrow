@@ -1,125 +1,108 @@
+/* Import Google Fonts for Luxury Theme */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-/* Enhanced Industrial Color Palette */
-    --background: 0 0% 100%;
-    --foreground: 215 25% 12%;
+    --background: 40 20% 98%;
+    /* Soft Cream White */
+    --foreground: 220 15% 15%;
+    /* Deep Charcoal */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 12%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 12%;
+    --popover-foreground: 220 15% 15%;
 
-    /* Enhanced Industrial Blue Primary */
-    --primary: 214 84% 18%;
-    --primary-foreground: 0 0% 98%;
-    --primary-light: 214 84% 32%;
-    --primary-dark: 214 84% 10%;
-    --primary-hover: 214 84% 25%;
+    /* Primary: Deep Midnight Blue for authority and elegance */
+    --primary: 222 47% 11%;
+    --primary-foreground: 40 20% 97%;
+    --primary-light: 222 40% 20%;
+    --primary-dark: 222 50% 8%;
 
-    /* Premium Steel Gray Secondary */
-    --secondary: 215 15% 96%;
-    --secondary-foreground: 215 25% 20%;
-    --secondary-hover: 215 15% 92%;
+    /* Secondary: Gold/Bronze for premium accents */
+    --secondary: 43 74% 49%;
+    /* Rich Gold */
+    --secondary-foreground: 222 47% 11%;
+    --secondary-light: 43 74% 59%;
+    --secondary-hover: 43 74% 45%;
 
-    --muted: 215 15% 97%;
-    --muted-foreground: 215 12% 40%;
+    /* Muted tones for balance */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    /* Premium Industrial Orange Accent */
-    --accent: 25 95% 52%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 25 95% 62%;
-    --accent-hover: 25 95% 48%;
+    /* Accent: Brighter Gold for highlights */
+    --accent: 43 96% 56%;
+    --accent-foreground: 222 47% 11%;
 
-    /* Success and Error States */
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 98%;
-    --warning: 43 96% 56%;
-    --warning-foreground: 0 0% 0%;
-
-    --destructive: 0 84.2% 60.2%;
+    /* Status colors */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
+    --success: 142 70% 30%;
+    --success-foreground: 0 0% 98%;
 
-    --border: 215 20% 90%;
-    --input: 215 20% 96%;
-    --ring: 214 84% 18%;
+    /* Borders and Inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 43 74% 49%;
+    /* Gold ring focus */
 
-    /* Enhanced Industrial Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(214 84% 18%) 0%, hsl(214 84% 32%) 50%, hsl(25 95% 52%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(215 15% 97%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(215 10% 99%));
-    --gradient-button: linear-gradient(135deg, hsl(25 95% 52%), hsl(25 95% 62%));
-    --gradient-premium: linear-gradient(135deg, hsl(214 84% 18%), hsl(214 84% 25%));
+    --radius: 0.25rem;
+    /* Sharper corners for a more formal look */
 
-    /* Enhanced Shadows */
-    --shadow-industrial: 0 8px 25px -6px hsl(214 84% 18% / 0.15);
-    --shadow-card: 0 4px 15px -3px hsl(215 25% 15% / 0.08);
-    --shadow-hover: 0 12px 35px -8px hsl(214 84% 18% / 0.25);
-    --shadow-button: 0 4px 14px -2px hsl(25 95% 52% / 0.3);
+    /* Luxury Gradients */
+    --gradient-hero: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8));
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%), hsl(43 96% 56%));
+    --gradient-dark: linear-gradient(135deg, hsl(222 47% 11%), hsl(222 40% 20%));
 
-    --radius: 0.5rem;
+    /* Elegant Shadows */
+    --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+    --shadow-gold: 0 4px 14px -2px rgba(218, 165, 32, 0.3);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (if used) */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 40 20% 97%;
+    --sidebar-primary: 43 74% 49%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 40% 20%;
+    --sidebar-accent-foreground: 40 20% 97%;
+    --sidebar-border: 222 40% 20%;
+    --sidebar-ring: 43 74% 49%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 222 47% 11%;
+    --foreground: 40 20% 97%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 40% 15%;
+    --card-foreground: 40 20% 97%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 40% 15%;
+    --popover-foreground: 40 20% 97%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 40 20% 97%;
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 43 74% 49%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 222 40% 20%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 43 74% 49%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62% 30%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 222 40% 20%;
+    --input: 222 40% 20%;
+    --ring: 43 74% 49%;
   }
 }
 
@@ -129,54 +112,120 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-medium;
+  }
+
+  /* Smooth Scrolling */
   html {
     scroll-behavior: smooth;
   }
 }
 
 @layer components {
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out;
+  .font-serif {
+    font-family: 'Playfair Display', serif;
   }
 
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out;
+  .font-sans {
+    font-family: 'Inter', sans-serif;
   }
 
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    transition: transform 0.3s ease;
+  .container-padding {
+    @apply px-4 md:px-8 lg:px-16 max-w-7xl mx-auto;
   }
 
-  .industrial-gradient {
-    background: var(--gradient-premium);
+  .section-padding {
+    @apply py-16 md:py-24;
   }
 
-  .button-glow:hover {
-    box-shadow: var(--shadow-button);
-    transition: box-shadow 0.3s ease;
+  .text-gold {
+    color: hsl(var(--secondary));
   }
-}
 
-@keyframes fadeIn {
-  from {
+  .bg-gold {
+    background-color: hsl(var(--secondary));
+  }
+
+  .border-gold {
+    border-color: hsl(var(--secondary));
+  }
+
+  /* Luxury Button Styles */
+  .btn-luxury {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-medium transition-all duration-300 rounded-sm;
+    background: var(--gradient-gold);
+    color: hsl(var(--secondary-foreground));
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn-luxury:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  .btn-outline-luxury {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-medium transition-all duration-300 border rounded-sm;
+    border-color: hsl(var(--secondary));
+    color: hsl(var(--secondary));
+  }
+
+  .btn-outline-luxury:hover {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+  }
+
+  /* Card Hover Effects */
+  .card-hover {
+    transition: all 0.4s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Text Reveal Animation */
+  .animate-reveal {
+    animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     opacity: 0;
     transform: translateY(20px);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
   }
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
+@keyframes reveal {
   to {
     opacity: 1;
     transform: translateY(0);

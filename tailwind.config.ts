@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import animate from "tailwindcss-animate"
 
 export default {
 	darkMode: ["class"],
@@ -30,11 +29,11 @@ export default {
 					foreground: 'hsl(var(--primary-foreground))',
 					light: 'hsl(var(--primary-light))',
 					dark: 'hsl(var(--primary-dark))',
-					hover: 'hsl(var(--primary-hover))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))',
+					light: 'hsl(var(--secondary-light))',
 					hover: 'hsl(var(--secondary-hover))'
 				},
 				destructive: {
@@ -48,8 +47,6 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
-					light: 'hsl(var(--accent-light))',
-					hover: 'hsl(var(--accent-hover))'
 				},
 				success: {
 					DEFAULT: 'hsl(var(--success))',
@@ -92,8 +89,8 @@ export default {
 				'button': 'var(--shadow-button)'
 			},
 			fontFamily: {
-				'sans': ['Inter', 'system-ui', 'sans-serif'],
-				'industrial': ['Inter', 'system-ui', 'sans-serif']
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -102,20 +99,12 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				}
 			},
 			animation: {
@@ -124,5 +113,5 @@ export default {
 			}
 		}
 	},
-	plugins: [animate],
+	plugins: [],
 } satisfies Config;
